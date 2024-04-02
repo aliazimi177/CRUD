@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <img src="{{product.image.url}}" alt="Product Name">
+        <br>
+        <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+        <p>Price: {{product.price}}</p>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_headers %}
+<link rel="stylesheet" href="{% static 'home/css/style.css'%}">
+{% endblock %}
+<head>
+    <style>
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product h2, .product p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+{% block content %}
+    {% for product in products %}
+    <div class="product">
+        <img src="{{product.image.url}}" alt="Product Name">
+        <br>
+        <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+        <p>Price: {{product.price}}</p>
+        <p>category: {{product.category.name}}</p>
+    </div>
+    <hr>
+    {% endfor %}
+{% endblock %}
